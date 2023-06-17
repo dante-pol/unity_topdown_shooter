@@ -5,6 +5,7 @@ class PlayerInputSystem
     public bool IsDownLeft { get; private set; } = false;
     public bool IsDownRight { get; private set; } = false;
     public bool IsForward { get; private set; } = false;
+    public bool IsDownFire { get; private set; } = false;
 
     private PlayerModel _playerModel;
 
@@ -17,15 +18,16 @@ class PlayerInputSystem
     public void UpdateSystem()
     {
         if (Input.GetKey(KeyCode.W))
-        {
             IsForward = true;
-        }
 
         if (Input.GetKey(KeyCode.A))
             IsDownLeft = true;
 
         if (Input.GetKey(KeyCode.D))
             IsDownRight = true;
+
+        if (Input.GetKey(KeyCode.Space))
+            IsDownFire = true;
 
     }
 
@@ -34,5 +36,6 @@ class PlayerInputSystem
         IsForward = false;
         IsDownLeft = false;
         IsDownRight = false;
+        IsDownFire = false;
     }
 }

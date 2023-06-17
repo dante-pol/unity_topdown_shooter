@@ -391,8 +391,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _heatPoint: 3
-  _speedMovement: 1
+  _speedMovement: 3.56
   _speedRotation: 3.13
+  _prefabBullet: {fileID: 7330718582369953495, guid: 213cd3d4e3dbe0c4c9b5c47439e909fb, type: 3}
+  _numberBullet: 30
+  _speedBullet: 3.29
+  _reloadBullet: 0.5
 --- !u!50 &524653128
 Rigidbody2D:
   serializedVersion: 4
