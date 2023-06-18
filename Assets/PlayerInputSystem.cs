@@ -28,7 +28,7 @@ class PlayerInputSystem
 
         if (Input.GetKey(KeyCode.Space))
             IsDownFire = true;
-
+            
     }
 
     public void ResetSystem()

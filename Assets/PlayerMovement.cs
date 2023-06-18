@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 class PlayerMovement
 {
@@ -13,7 +14,6 @@ class PlayerMovement
 
     public void Movement()
     {
-        Debug.Log(GetDirectionMovement());
         var velocity = GetDirectionMovement() * _playerModel.SpeedMovement;
         _playerModel.GetRigidbody2D.velocity = velocity;
     }
@@ -26,5 +26,11 @@ class PlayerMovement
     public Vector2 GetDirectionMovement()
     {
         return _playerModel.transform.right;
+    }
+
+    public void StopMovement()
+    {
+        Debug.Log("Log!");
+        _playerModel.GetRigidbody2D.velocity = Vector2.zero;
     }
 }

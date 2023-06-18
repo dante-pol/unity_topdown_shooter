@@ -12,9 +12,11 @@ public class PlayerModel : MonoBehaviour
     public Bullet PrefabBullet => _prefabBullet;
     public int NumberBullet => _numberBullet;
     public float SpeedBullet => _speedBullet;
-    public float ReloadBullet => _reloadBullet;
+    public float TimeReloadBullet => _reloadBullet;
+    public GameObject BulletContainer => _bulletContainer;
 
     public Rigidbody2D GetRigidbody2D => _rigidbody;
+
     #endregion
 
     #region Field inspector
@@ -27,6 +29,7 @@ public class PlayerModel : MonoBehaviour
 
     [Header("Shooter data")]
     [SerializeField] private Bullet _prefabBullet;
+    [SerializeField] private GameObject _bulletContainer;
     [SerializeField] private int _numberBullet;
     [SerializeField] [Range(1, 10)] private float _speedBullet;
     [SerializeField] [Range(0.1f, 1.5f)] private float _reloadBullet;
@@ -54,12 +57,15 @@ public class PlayerModel : MonoBehaviour
     private void Update()
     {
         _playerInputSystem.UpdateSystem();
+        _playerShooter.UpdateShooter();
     }
 
     private void FixedUpdate()
     {
         if (_playerInputSystem.IsForward)
             _playerMovement.Movement();
+        else
+            _playerMovement.StopMovement();
 
         if (_playerInputSystem.IsDownLeft)
             _playerMovement.Rotation(1);
